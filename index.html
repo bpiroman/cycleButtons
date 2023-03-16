@@ -1,0 +1,42 @@
+<html> 
+
+<head> 
+<title>Cycle</title> 
+<script type="text/javascript"> 
+function getSelectedButton(buttonGroup){ 
+    for (var i = 0; i < buttonGroup.length; i++) { 
+        if (buttonGroup[i].checked) { 
+            return i; 
+        } 
+    } 
+    return 0; 
+} 
+function cycleBack(form) { 
+    var i = getSelectedButton(form.sizes); 
+    if (i-1 == form.sizes.length) { 
+        form.sizes[0].checked = true; 
+    } else { 
+        form.sizes[i-1].checked = true; 
+    } 
+} 
+function cycleForward(form) { 
+    var i = getSelectedButton(form.sizes); 
+    if (i+1 == form.sizes.length) { 
+        form.sizes[0].checked = false;
+    } else { 
+        form.sizes[i+1].checked = true; 
+    } 
+} 
+</script> 
+</head> 
+<body> 
+<form>
+<input type="button" name="Cycler" value="Cycle Buttons" onclick="cycleBack(this.form)" /> 
+<input type="radio" name="sizes" value="3" checked="checked" />3
+<input type="radio" name="sizes" value="2" />2
+<input type="radio" name="sizes" value="0" />0
+<input type="radio" name="sizes" value="1" />1
+<input type="button" name="Cycler" value="Cycle Buttons" onclick="cycleForward(this.form)" />
+</form> 
+</body> 
+</html>
